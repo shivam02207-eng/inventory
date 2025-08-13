@@ -1,0 +1,52 @@
+# Simple Inventory System
+
+inventory = {}
+
+def add_product():
+    sku = input("p107: ")
+    name = input("eraser: ")
+    price = float(input("Enter price: $"))
+    quantity = int(input("Enter quantity: "))
+    
+    if sku in inventory:
+        print("SKU already exists. Updating quantity.")
+        inventory[sku]["quantity"] += quantity
+    else:
+        inventory[sku] = {
+            "name": name,
+            "price": price,
+            "quantity": quantity
+        }
+        print("Product added successfully.")
+
+def display_inventory():
+    if not inventory:
+        print("Inventory is empty.")
+        return
+
+    print("\nInventory:")
+    print(f"{'SKU':<10} {'Name':<15} {'Price':<10} Quantity")
+    print("-" * 45)
+    for sku, item in inventory.items():
+        print(f"{sku:<10} {item['name']:<15} ${item['price']:<10.2f} {item['quantity']}")
+
+def main():
+    while True:
+        print("\n1. Add Product")
+        print("2. Display Inventory")
+        print("3. Exit")
+        choice = input("Choose an option (1-3): ")
+
+        if choice == "1":
+            add_product()
+        elif choice == "2":
+            display_inventory()
+        elif choice == "3":
+            print("Exiting program.")
+            break
+        else:
+            print("Invalid choice. Try again.")
+
+if __name__ == "__main__":
+    main()
+
