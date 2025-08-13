@@ -3,7 +3,7 @@
 inventory = {}
 
 def add_product():
-    sku = input("Enter SKU: ")
+    sku = input("P101: ")
     name = input("Enter product name: ")
     price = float(input("Enter price: $"))
     quantity = int(input("Enter quantity: "))
@@ -49,4 +49,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
